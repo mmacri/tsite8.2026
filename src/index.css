@@ -1,0 +1,372 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* SCL OT CSIR Training Design System
+   Professional, trustworthy, utility/government aesthetic
+   Deep navy primary, teal accents for progress, high readability
+*/
+
+@layer base {
+  :root {
+    /* Core brand colors - Deep navy for trust/authority */
+    --background: 210 20% 98%;
+    --foreground: 215 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+
+    /* Primary - Deep navy blue */
+    --primary: 215 50% 23%;
+    --primary-foreground: 210 40% 98%;
+
+    /* Secondary - Slate gray */
+    --secondary: 210 15% 92%;
+    --secondary-foreground: 215 25% 25%;
+
+    /* Muted - Soft gray */
+    --muted: 210 15% 95%;
+    --muted-foreground: 215 15% 45%;
+
+    /* Accent - Teal for progress/success */
+    --accent: 175 60% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Status colors */
+    --success: 160 60% 40%;
+    --success-foreground: 0 0% 100%;
+    
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    
+    --danger: 0 72% 51%;
+    --danger-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* UI elements */
+    --border: 214 20% 88%;
+    --input: 214 20% 88%;
+    --ring: 215 50% 23%;
+
+    --radius: 0.5rem;
+
+    /* Sidebar - Darker navy */
+    --sidebar-background: 215 50% 18%;
+    --sidebar-foreground: 210 20% 92%;
+    --sidebar-primary: 175 60% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 215 40% 28%;
+    --sidebar-accent-foreground: 210 20% 95%;
+    --sidebar-border: 215 40% 25%;
+    --sidebar-ring: 175 60% 50%;
+
+    /* Custom training module colors */
+    --module-locked: 215 15% 70%;
+    --module-active: 175 60% 40%;
+    --module-completed: 160 60% 40%;
+    
+    /* Callout variants */
+    --callout-info-bg: 200 80% 96%;
+    --callout-info-border: 200 80% 70%;
+    --callout-info-text: 200 80% 25%;
+    
+    --callout-warning-bg: 38 92% 95%;
+    --callout-warning-border: 38 92% 60%;
+    --callout-warning-text: 38 80% 25%;
+    
+    --callout-danger-bg: 0 72% 96%;
+    --callout-danger-border: 0 72% 60%;
+    --callout-danger-text: 0 72% 30%;
+  }
+
+  .dark {
+    --background: 215 30% 10%;
+    --foreground: 210 20% 95%;
+
+    --card: 215 30% 14%;
+    --card-foreground: 210 20% 95%;
+
+    --popover: 215 30% 14%;
+    --popover-foreground: 210 20% 95%;
+
+    --primary: 175 60% 50%;
+    --primary-foreground: 215 50% 10%;
+
+    --secondary: 215 25% 22%;
+    --secondary-foreground: 210 20% 90%;
+
+    --muted: 215 25% 18%;
+    --muted-foreground: 215 15% 60%;
+
+    --accent: 175 60% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --success: 160 60% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215 25% 22%;
+    --input: 215 25% 22%;
+    --ring: 175 60% 50%;
+
+    --sidebar-background: 215 35% 8%;
+    --sidebar-foreground: 210 20% 92%;
+    --sidebar-primary: 175 60% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 215 30% 18%;
+    --sidebar-accent-foreground: 210 20% 95%;
+    --sidebar-border: 215 30% 15%;
+    --sidebar-ring: 175 60% 50%;
+
+    --module-locked: 215 15% 40%;
+    --module-active: 175 60% 50%;
+    --module-completed: 160 60% 45%;
+    
+    --callout-info-bg: 200 60% 15%;
+    --callout-info-border: 200 60% 40%;
+    --callout-info-text: 200 60% 80%;
+    
+    --callout-warning-bg: 38 60% 15%;
+    --callout-warning-border: 38 70% 45%;
+    --callout-warning-text: 38 70% 80%;
+    
+    --callout-danger-bg: 0 50% 15%;
+    --callout-danger-border: 0 60% 45%;
+    --callout-danger-text: 0 60% 80%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full hover:bg-muted-foreground/50;
+  }
+}
+
+@layer components {
+  /* Training content callouts */
+  .callout {
+    @apply p-4 rounded-lg border-l-4 my-4;
+  }
+
+  .callout-info {
+    background: hsl(var(--callout-info-bg));
+    border-color: hsl(var(--callout-info-border));
+    color: hsl(var(--callout-info-text));
+  }
+
+  .callout-warning {
+    background: hsl(var(--callout-warning-bg));
+    border-color: hsl(var(--callout-warning-border));
+    color: hsl(var(--callout-warning-text));
+  }
+
+  .callout-danger {
+    background: hsl(var(--callout-danger-bg));
+    border-color: hsl(var(--callout-danger-border));
+    color: hsl(var(--callout-danger-text));
+  }
+
+  /* Definition cards */
+  .definition-card {
+    @apply bg-card border border-border rounded-lg p-4 my-3;
+  }
+
+  .definition-card h3 {
+    @apply text-lg font-semibold text-primary mb-2;
+  }
+
+  .definition-card p {
+    @apply text-muted-foreground;
+  }
+
+  /* Phase grid for CSIR workflow */
+  .phase-grid {
+    @apply grid grid-cols-2 md:grid-cols-3 gap-3 my-4;
+  }
+
+  .phase-card {
+    @apply bg-card border border-border rounded-lg p-3 text-center relative;
+  }
+
+  .phase-num {
+    @apply inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold mb-2;
+  }
+
+  .phase-card h4 {
+    @apply font-semibold text-foreground;
+  }
+
+  .phase-card p {
+    @apply text-sm text-muted-foreground mt-1;
+  }
+
+  /* Role grid */
+  .role-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 my-4;
+  }
+
+  .role-card {
+    @apply bg-card border border-border rounded-lg p-4;
+  }
+
+  .role-card h4 {
+    @apply font-semibold text-primary mb-2;
+  }
+
+  .role-card p {
+    @apply text-sm text-muted-foreground;
+  }
+
+  /* Timeline grid */
+  .timeline-grid {
+    @apply grid grid-cols-1 md:grid-cols-3 gap-3 my-4;
+  }
+
+  .timeline-card {
+    @apply bg-card border-2 border-warning rounded-lg p-4 text-center;
+  }
+
+  .timeline-card h4 {
+    @apply font-semibold text-foreground mb-2;
+  }
+
+  .timeline-card p {
+    @apply text-sm text-muted-foreground;
+  }
+
+  /* Module content typography */
+  .module-content h2 {
+    @apply text-2xl font-bold text-foreground mb-4 mt-6 first:mt-0;
+  }
+
+  .module-content h3 {
+    @apply text-xl font-semibold text-foreground mb-3 mt-4;
+  }
+
+  .module-content h4 {
+    @apply text-lg font-medium text-foreground mb-2 mt-3;
+  }
+
+  .module-content p {
+    @apply text-muted-foreground mb-3 leading-relaxed;
+  }
+
+  .module-content ul, .module-content ol {
+    @apply ml-6 mb-4 space-y-2;
+  }
+
+  .module-content ul {
+    @apply list-disc;
+  }
+
+  .module-content ol {
+    @apply list-decimal;
+  }
+
+  .module-content li {
+    @apply text-muted-foreground leading-relaxed;
+  }
+
+  .module-content strong {
+    @apply text-foreground font-semibold;
+  }
+
+  .module-content em {
+    @apply text-muted-foreground italic;
+  }
+
+  /* Progress bar animation */
+  .progress-fill {
+    @apply transition-all duration-500 ease-out;
+  }
+}
+
+@layer utilities {
+  /* Focus visible styles for accessibility */
+  .focus-ring {
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+
+  /* Enhanced focus styles for all interactive elements */
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  [role="button"]:focus-visible,
+  [tabindex]:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  /* Gradient utilities */
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(215 50% 30%) 100%);
+  }
+
+  .gradient-accent {
+    background: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(160 60% 40%) 100%);
+  }
+
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-in,
+    .animate-slide-up {
+      animation: none;
+    }
+  }
+}
